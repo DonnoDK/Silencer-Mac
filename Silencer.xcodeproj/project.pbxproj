@@ -1,0 +1,342 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D83B92EA159381850004468B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83B92E9159381850004468B /* Cocoa.framework */; };
+		D83B92F4159381850004468B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D83B92F2159381850004468B /* InfoPlist.strings */; };
+		D83B92F6159381850004468B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D83B92F5159381850004468B /* main.m */; };
+		D83B92FA159381850004468B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D83B92F8159381850004468B /* Credits.rtf */; };
+		D83B92FD159381860004468B /* BBA_AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D83B92FC159381860004468B /* BBA_AppDelegate.m */; };
+		D83B9300159381860004468B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D83B92FE159381860004468B /* MainMenu.xib */; };
+		D83B9308159381980004468B /* BBA_AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = D83B9307159381980004468B /* BBA_AppController.m */; };
+		D83B930A159381A60004468B /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83B9309159381A60004468B /* CoreAudio.framework */; };
+		D83B9316159385A70004468B /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = D83B9315159385A70004468B /* Preferences.xib */; };
+		D83B93191593898E0004468B /* BBA_PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = D83B93181593898E0004468B /* BBA_PreferenceController.m */; };
+		D8D3B3031593C2CC00C7F3EE /* LaunchAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D3B3021593C2CC00C7F3EE /* LaunchAtLoginController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D8D3B30A15949C2500C7F3EE /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = D8D3B30915949C2500C7F3EE /* Icon.icns */; };
+		D8D3B30E15949ED000C7F3EE /* StatusIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D8D3B30D15949ED000C7F3EE /* StatusIcon.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D83B92E5159381850004468B /* Silencer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Silencer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D83B92E9159381850004468B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		D83B92EC159381850004468B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		D83B92ED159381850004468B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D83B92EE159381850004468B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D83B92F1159381850004468B /* Silencer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Silencer-Info.plist"; sourceTree = "<group>"; };
+		D83B92F3159381850004468B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D83B92F5159381850004468B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D83B92F7159381850004468B /* Silencer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Silencer-Prefix.pch"; sourceTree = "<group>"; };
+		D83B92F9159381850004468B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		D83B92FB159381850004468B /* BBA_AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBA_AppDelegate.h; sourceTree = "<group>"; };
+		D83B92FC159381860004468B /* BBA_AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBA_AppDelegate.m; sourceTree = "<group>"; };
+		D83B92FF159381860004468B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		D83B9306159381980004468B /* BBA_AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBA_AppController.h; sourceTree = "<group>"; };
+		D83B9307159381980004468B /* BBA_AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBA_AppController.m; sourceTree = "<group>"; };
+		D83B9309159381A60004468B /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		D83B9315159385A70004468B /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Preferences.xib; path = ../Preferences.xib; sourceTree = "<group>"; };
+		D83B93171593898E0004468B /* BBA_PreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBA_PreferenceController.h; path = ../BBA_PreferenceController.h; sourceTree = "<group>"; };
+		D83B93181593898E0004468B /* BBA_PreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBA_PreferenceController.m; path = ../BBA_PreferenceController.m; sourceTree = "<group>"; };
+		D8D3B3011593C2CC00C7F3EE /* LaunchAtLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchAtLoginController.h; sourceTree = "<group>"; };
+		D8D3B3021593C2CC00C7F3EE /* LaunchAtLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchAtLoginController.m; sourceTree = "<group>"; };
+		D8D3B30915949C2500C7F3EE /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = ../Icon.icns; sourceTree = "<group>"; };
+		D8D3B30D15949ED000C7F3EE /* StatusIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusIcon.png; sourceTree = "<group>"; };
+		D8D3B3131594F22900C7F3EE /* Silencer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Silencer.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D83B92E2159381850004468B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D83B930A159381A60004468B /* CoreAudio.framework in Frameworks */,
+				D83B92EA159381850004468B /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D83B92DA159381850004468B = {
+			isa = PBXGroup;
+			children = (
+				D8D3B3131594F22900C7F3EE /* Silencer.entitlements */,
+				D83B9309159381A60004468B /* CoreAudio.framework */,
+				D83B92EF159381850004468B /* Silent */,
+				D83B92E8159381850004468B /* Frameworks */,
+				D83B92E6159381850004468B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D83B92E6159381850004468B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D83B92E5159381850004468B /* Silencer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D83B92E8159381850004468B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D83B92E9159381850004468B /* Cocoa.framework */,
+				D83B92EB159381850004468B /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D83B92EB159381850004468B /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D83B92EC159381850004468B /* AppKit.framework */,
+				D83B92ED159381850004468B /* CoreData.framework */,
+				D83B92EE159381850004468B /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		D83B92EF159381850004468B /* Silent */ = {
+			isa = PBXGroup;
+			children = (
+				D83B93171593898E0004468B /* BBA_PreferenceController.h */,
+				D83B93181593898E0004468B /* BBA_PreferenceController.m */,
+				D83B9315159385A70004468B /* Preferences.xib */,
+				D83B9306159381980004468B /* BBA_AppController.h */,
+				D83B9307159381980004468B /* BBA_AppController.m */,
+				D83B92FB159381850004468B /* BBA_AppDelegate.h */,
+				D83B92FC159381860004468B /* BBA_AppDelegate.m */,
+				D83B92FE159381860004468B /* MainMenu.xib */,
+				D8D3B3011593C2CC00C7F3EE /* LaunchAtLoginController.h */,
+				D8D3B3021593C2CC00C7F3EE /* LaunchAtLoginController.m */,
+				D83B92F0159381850004468B /* Supporting Files */,
+			);
+			path = Silent;
+			sourceTree = "<group>";
+		};
+		D83B92F0159381850004468B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D8D3B30D15949ED000C7F3EE /* StatusIcon.png */,
+				D8D3B30915949C2500C7F3EE /* Icon.icns */,
+				D83B92F1159381850004468B /* Silencer-Info.plist */,
+				D83B92F2159381850004468B /* InfoPlist.strings */,
+				D83B92F5159381850004468B /* main.m */,
+				D83B92F7159381850004468B /* Silencer-Prefix.pch */,
+				D83B92F8159381850004468B /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D83B92E4159381850004468B /* Silencer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D83B9303159381860004468B /* Build configuration list for PBXNativeTarget "Silencer" */;
+			buildPhases = (
+				D83B92E1159381850004468B /* Sources */,
+				D83B92E2159381850004468B /* Frameworks */,
+				D83B92E3159381850004468B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Silencer;
+			productName = Silent;
+			productReference = D83B92E5159381850004468B /* Silencer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D83B92DC159381850004468B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = BBA_;
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Bluebird Apps";
+			};
+			buildConfigurationList = D83B92DF159381850004468B /* Build configuration list for PBXProject "Silencer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D83B92DA159381850004468B;
+			productRefGroup = D83B92E6159381850004468B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D83B92E4159381850004468B /* Silencer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D83B92E3159381850004468B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D83B92F4159381850004468B /* InfoPlist.strings in Resources */,
+				D83B92FA159381850004468B /* Credits.rtf in Resources */,
+				D83B9300159381860004468B /* MainMenu.xib in Resources */,
+				D83B9316159385A70004468B /* Preferences.xib in Resources */,
+				D8D3B30A15949C2500C7F3EE /* Icon.icns in Resources */,
+				D8D3B30E15949ED000C7F3EE /* StatusIcon.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D83B92E1159381850004468B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D83B92F6159381850004468B /* main.m in Sources */,
+				D83B92FD159381860004468B /* BBA_AppDelegate.m in Sources */,
+				D83B9308159381980004468B /* BBA_AppController.m in Sources */,
+				D83B93191593898E0004468B /* BBA_PreferenceController.m in Sources */,
+				D8D3B3031593C2CC00C7F3EE /* LaunchAtLoginController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D83B92F2159381850004468B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D83B92F3159381850004468B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D83B92F8159381850004468B /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D83B92F9159381850004468B /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		D83B92FE159381860004468B /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D83B92FF159381860004468B /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D83B9301159381860004468B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D83B9302159381860004468B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D83B9304159381860004468B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Silencer.entitlements;
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application: Bluebird Apps I/S";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Silent/Silencer-Prefix.pch";
+				INFOPLIST_FILE = "Silent/Silencer-Info.plist";
+				PRODUCT_NAME = Silencer;
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D83B9305159381860004468B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Silencer.entitlements;
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application: Bluebird Apps I/S";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Silent/Silencer-Prefix.pch";
+				INFOPLIST_FILE = "Silent/Silencer-Info.plist";
+				PRODUCT_NAME = Silencer;
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D83B92DF159381850004468B /* Build configuration list for PBXProject "Silencer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D83B9301159381860004468B /* Debug */,
+				D83B9302159381860004468B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D83B9303159381860004468B /* Build configuration list for PBXNativeTarget "Silencer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D83B9304159381860004468B /* Debug */,
+				D83B9305159381860004468B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D83B92DC159381850004468B /* Project object */;
+}
