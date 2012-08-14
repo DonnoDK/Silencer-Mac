@@ -20,4 +20,7 @@
 
 //- (IBAction)launchAtLogin:(id)sender;
 
+
+- (void)setBegin:(NSDate *)b;
+- (void)setEnd:(NSDate *)e;
 @end
