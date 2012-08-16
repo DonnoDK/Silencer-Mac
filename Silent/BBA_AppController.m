@@ -65,7 +65,13 @@
     if (!preferenceController) {
         preferenceController = [[BBA_PreferenceController alloc] init];
     }
+    // NOTE: This is a fix for properly displaying the window again
+    // if it is already visible and the user switched to another space
+    if([[preferenceController window] isVisible])
+        [[preferenceController window] orderOut:self];
+    
     [preferenceController showWindow:self];
+        
 }
 
 
