@@ -45,7 +45,7 @@
 - (void)awakeFromNib {
     statusIcon = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle]pathForImageResource:@"StatusIcon"]];
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-    [statusItem setToolTip:@"Silent"];
+    [statusItem setToolTip:@"Silencer"];
     [statusItem setMenu:statusMenu];
     [statusItem setImage:statusIcon];
     [statusItem setHighlightMode:YES];
@@ -71,7 +71,6 @@
         [[preferenceController window] orderOut:self];
     
     [preferenceController showWindow:self];
-        
 }
 
 
@@ -81,8 +80,8 @@
 
 - (void)muteDefaultAudioDevice {
     SetMute(GetDefaultAudioDevice(), YES);
-    
 }
+
 - (void)unmuteDefaultAudioDevice {
     SetMute(GetDefaultAudioDevice(), NO);
 }
@@ -157,12 +156,14 @@ void SetMute(AudioDeviceID device, BOOL mute)
     
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
     
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     
     NSDate *now = [NSDate date];
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *nowComponents = [gregorian components:NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit fromDate:now];
+    
     NSDate *begin = [BBA_PreferenceController preferenceBeginDate];
     NSDateComponents *beginComponents = [gregorian components:NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit fromDate:begin];
+    
     NSDate *end = [BBA_PreferenceController preferenceEndDate];
     NSDateComponents *endComponents = [gregorian components:NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit fromDate:end];
     
@@ -170,14 +171,24 @@ void SetMute(AudioDeviceID device, BOOL mute)
     int endInSeconds = (int)([endComponents hour] * 60 * 60 + [endComponents minute] * 60 + [endComponents second]);
     int nowInSeconds = (int)([nowComponents hour] * 60 * 60 + [nowComponents minute] * 60 + [nowComponents second]);
     
-    totalOffsetInSecondsForMute = (beginInSeconds - nowInSeconds) % (60 * 60 * 60);
-    if (totalOffsetInSecondsForMute < 0) totalOffsetInSecondsForMute += (60 * 60 * 60); // objC does not prevent negative modulus.
+    // was previously doing calculations with 60*60*60 which was incorrect
+    totalOffsetInSecondsForMute = (beginInSeconds - nowInSeconds) % (60 * 60 * 24);
+    if (totalOffsetInSecondsForMute < 0) totalOffsetInSecondsForMute += (60 * 60 * 24); // objC does not prevent negative modulus.
 
-    totalOffsetInSecondsForUnmute = (endInSeconds - nowInSeconds) % (60 * 60 * 60);
-    if (totalOffsetInSecondsForUnmute < 0) totalOffsetInSecondsForUnmute += (60 * 60 * 60); // objC does not prevent negative modulus.
+    totalOffsetInSecondsForUnmute = (endInSeconds - nowInSeconds) % (60 * 60 * 24);
+    if (totalOffsetInSecondsForUnmute < 0) totalOffsetInSecondsForUnmute += (60 * 60 * 24); // objC does not prevent negative modulus.
     
     [self performSelector:@selector(mute) withObject:self afterDelay:totalOffsetInSecondsForMute];
     [self performSelector:@selector(unmute) withObject:self afterDelay:totalOffsetInSecondsForUnmute];
+    
+    // Temporary for bugfixing
+    /*
+    NSLog(@"Begin %@", begin);
+    NSLog(@"End %@", end);
+    NSLog(@"Begin muting in %ld", totalOffsetInSecondsForMute);
+    NSLog(@"Unmute in %ld", totalOffsetInSecondsForUnmute);
+    NSLog(@"\n");
+    */
 }
 
 @end
