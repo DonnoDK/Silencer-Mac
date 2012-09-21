@@ -4,7 +4,8 @@
 //
 //  Created by Pétur Egilsson on 21/06/12.
 //  Copyright (c) 2012 Bluebird Apps. All rights reserved.
-//  testing
+//  testing another test
+// and another
 
 #import <Cocoa/Cocoa.h>
 
