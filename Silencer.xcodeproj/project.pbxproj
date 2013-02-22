@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68A3C56F16D7B7AF00E0418B /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A3C56E16D7B7AF00E0418B /* SenTestingKit.framework */; };
+		68A3C57016D7B7AF00E0418B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83B92E9159381850004468B /* Cocoa.framework */; };
+		68A3C57616D7B7AF00E0418B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 68A3C57416D7B7AF00E0418B /* InfoPlist.strings */; };
+		68A3C57916D7B7AF00E0418B /* audioDeviceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A3C57816D7B7AF00E0418B /* audioDeviceTests.m */; };
+		68A3C58416D7C51A00E0418B /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83B9309159381A60004468B /* CoreAudio.framework */; };
+		68A3C58716D7C8F400E0418B /* BBA_AudioDeviceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A3C58616D7C8F400E0418B /* BBA_AudioDeviceController.m */; };
+		68A3C58816D7C8F400E0418B /* BBA_AudioDeviceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A3C58616D7C8F400E0418B /* BBA_AudioDeviceController.m */; };
 		D83B92EA159381850004468B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83B92E9159381850004468B /* Cocoa.framework */; };
 		D83B92F4159381850004468B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D83B92F2159381850004468B /* InfoPlist.strings */; };
 		D83B92F6159381850004468B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D83B92F5159381850004468B /* main.m */; };
@@ -23,6 +30,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		68A3C56D16D7B7AF00E0418B /* audioDevicesTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = audioDevicesTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		68A3C56E16D7B7AF00E0418B /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		68A3C57316D7B7AF00E0418B /* audioDevicesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "audioDevicesTests-Info.plist"; sourceTree = "<group>"; };
+		68A3C57516D7B7AF00E0418B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		68A3C57716D7B7AF00E0418B /* audioDeviceTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = audioDeviceTests.h; sourceTree = "<group>"; };
+		68A3C57816D7B7AF00E0418B /* audioDeviceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = audioDeviceTests.m; sourceTree = "<group>"; };
+		68A3C57A16D7B7AF00E0418B /* audioDevicesTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "audioDevicesTests-Prefix.pch"; sourceTree = "<group>"; };
+		68A3C58516D7C8F400E0418B /* BBA_AudioDeviceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBA_AudioDeviceController.h; sourceTree = "<group>"; };
+		68A3C58616D7C8F400E0418B /* BBA_AudioDeviceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBA_AudioDeviceController.m; sourceTree = "<group>"; };
 		D83B92E5159381850004468B /* Silencer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Silencer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D83B92E9159381850004468B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D83B92EC159381850004468B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -50,6 +66,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		68A3C56916D7B7AF00E0418B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68A3C58416D7C51A00E0418B /* CoreAudio.framework in Frameworks */,
+				68A3C56F16D7B7AF00E0418B /* SenTestingKit.framework in Frameworks */,
+				68A3C57016D7B7AF00E0418B /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D83B92E2159381850004468B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -62,6 +88,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		68A3C56616D7B75800E0418B /* testing */ = {
+			isa = PBXGroup;
+			children = (
+				68A3C56716D7B75E00E0418B /* audio */,
+			);
+			name = testing;
+			sourceTree = "<group>";
+		};
+		68A3C56716D7B75E00E0418B /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				68A3C57116D7B7AF00E0418B /* audioDevicesTests */,
+			);
+			name = audio;
+			sourceTree = "<group>";
+		};
+		68A3C57116D7B7AF00E0418B /* audioDevicesTests */ = {
+			isa = PBXGroup;
+			children = (
+				68A3C57716D7B7AF00E0418B /* audioDeviceTests.h */,
+				68A3C57816D7B7AF00E0418B /* audioDeviceTests.m */,
+				68A3C57216D7B7AF00E0418B /* Supporting Files */,
+			);
+			name = audioDevicesTests;
+			path = ../audioDevicesTests;
+			sourceTree = "<group>";
+		};
+		68A3C57216D7B7AF00E0418B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				68A3C57316D7B7AF00E0418B /* audioDevicesTests-Info.plist */,
+				68A3C57416D7B7AF00E0418B /* InfoPlist.strings */,
+				68A3C57A16D7B7AF00E0418B /* audioDevicesTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		68A3C57E16D7B92B00E0418B /* src */ = {
+			isa = PBXGroup;
+			children = (
+				68A3C57F16D7B93000E0418B /* audio */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		68A3C57F16D7B93000E0418B /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				68A3C58516D7C8F400E0418B /* BBA_AudioDeviceController.h */,
+				68A3C58616D7C8F400E0418B /* BBA_AudioDeviceController.m */,
+			);
+			name = audio;
+			sourceTree = "<group>";
+		};
 		D83B92DA159381850004468B = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				D83B92E5159381850004468B /* Silencer.app */,
+				68A3C56D16D7B7AF00E0418B /* audioDevicesTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -85,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				D83B92E9159381850004468B /* Cocoa.framework */,
+				68A3C56E16D7B7AF00E0418B /* SenTestingKit.framework */,
 				D83B92EB159381850004468B /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -103,6 +185,8 @@
 		D83B92EF159381850004468B /* Silent */ = {
 			isa = PBXGroup;
 			children = (
+				68A3C57E16D7B92B00E0418B /* src */,
+				68A3C56616D7B75800E0418B /* testing */,
 				D83B93171593898E0004468B /* BBA_PreferenceController.h */,
 				D83B93181593898E0004468B /* BBA_PreferenceController.m */,
 				D83B9315159385A70004468B /* Preferences.xib */,
@@ -135,6 +219,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		68A3C56C16D7B7AF00E0418B /* audioDevicesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68A3C57B16D7B7AF00E0418B /* Build configuration list for PBXNativeTarget "audioDevicesTests" */;
+			buildPhases = (
+				68A3C56816D7B7AF00E0418B /* Sources */,
+				68A3C56916D7B7AF00E0418B /* Frameworks */,
+				68A3C56A16D7B7AF00E0418B /* Resources */,
+				68A3C56B16D7B7AF00E0418B /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = audioDevicesTests;
+			productName = audioDevicesTests;
+			productReference = 68A3C56D16D7B7AF00E0418B /* audioDevicesTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		D83B92E4159381850004468B /* Silencer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D83B9303159381860004468B /* Build configuration list for PBXNativeTarget "Silencer" */;
@@ -175,11 +277,20 @@
 			projectRoot = "";
 			targets = (
 				D83B92E4159381850004468B /* Silencer */,
+				68A3C56C16D7B7AF00E0418B /* audioDevicesTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		68A3C56A16D7B7AF00E0418B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68A3C57616D7B7AF00E0418B /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D83B92E3159381850004468B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -195,7 +306,32 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		68A3C56B16D7B7AF00E0418B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		68A3C56816D7B7AF00E0418B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68A3C57916D7B7AF00E0418B /* audioDeviceTests.m in Sources */,
+				68A3C58816D7C8F400E0418B /* BBA_AudioDeviceController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D83B92E1159381850004468B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -205,12 +341,21 @@
 				D83B9308159381980004468B /* BBA_AppController.m in Sources */,
 				D83B93191593898E0004468B /* BBA_PreferenceController.m in Sources */,
 				D8D3B3031593C2CC00C7F3EE /* LaunchAtLoginController.m in Sources */,
+				68A3C58716D7C8F400E0418B /* BBA_AudioDeviceController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		68A3C57416D7B7AF00E0418B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				68A3C57516D7B7AF00E0418B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		D83B92F2159381850004468B /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -238,6 +383,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		68A3C57C16D7B7AF00E0418B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "audioDevicesTests/audioDevicesTests-Prefix.pch";
+				INFOPLIST_FILE = "audioDevicesTests/audioDevicesTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		68A3C57D16D7B7AF00E0418B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "audioDevicesTests/audioDevicesTests-Prefix.pch";
+				INFOPLIST_FILE = "audioDevicesTests/audioDevicesTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		D83B9301159381860004468B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -322,6 +509,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		68A3C57B16D7B7AF00E0418B /* Build configuration list for PBXNativeTarget "audioDevicesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68A3C57C16D7B7AF00E0418B /* Debug */,
+				68A3C57D16D7B7AF00E0418B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		D83B92DF159381850004468B /* Build configuration list for PBXProject "Silencer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
