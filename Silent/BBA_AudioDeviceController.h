@@ -13,7 +13,7 @@
     NSMutableArray *currentAudioDevices;
     AudioDeviceID *audioDevices;
     AudioObjectPropertyAddress propertyAddress;
-    OSStatus status;
+    OSStatus error;
     UInt32 dataSize;
     UInt32 deviceCount;
 }
