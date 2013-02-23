@@ -19,61 +19,31 @@
         audioDevices = nil;
         dataSize = 0;
         deviceCount = 0;
+        // define the propertyAddress to use
+        propertyAddress.mSelector = kAudioHardwarePropertyDevices;
+        propertyAddress.mScope = kAudioObjectPropertyScopeOutput;
+        propertyAddress.mElement = kAudioObjectPropertyElementMaster;
     }
     return self;
 }
 -(void)muteAllDevices{
     [self identifyAllAudioDevices];
     if(currentAudioDevices != nil){
-        for(NSNumber *device in currentAudioDevices){
-            AudioDeviceID deviceId = (UInt32)[device integerValue];
-            [self muteAudioDevice:deviceId shouldMute:YES];
+        for(BBA_AudioDevice *device in currentAudioDevices){
+            [device mute];
         }
     }
 }
 -(void)unmuteAllDevices{
     [self identifyAllAudioDevices];
     if(currentAudioDevices != nil){
-        for(NSNumber *device in currentAudioDevices){
-            AudioDeviceID deviceId = (UInt32)[device integerValue];
-            [self muteAudioDevice:deviceId shouldMute:NO];
+        for(BBA_AudioDevice *device in currentAudioDevices){
+            [device unmute];
         }
     }
 }
 
 // Private methods
--(void)muteAudioDevice:(AudioDeviceID)device shouldMute:(bool)mute{
-    UInt32 muteVal = (UInt32)mute;
-    
-    propertyAddress.mSelector = kAudioDevicePropertyMute;
-    propertyAddress.mScope = kAudioDevicePropertyScopeOutput;
-    propertyAddress.mElement = kAudioObjectPropertyElementMaster;
-
-    // can this device mute/unmute?
-    bool canMuteAndUnmute = AudioObjectHasProperty(device, &propertyAddress);
-    
-    error = 0;
-    if(canMuteAndUnmute){
-        error = AudioObjectSetPropertyData(
-                                    device,
-                                     &propertyAddress,
-                                     0,
-                                     nil,
-                                     sizeof(UInt32),
-                                     &muteVal);
-        NSLog(@"Device %u is now %@muted",device, (mute ? @"" : @"un"));
-    }
-    if (error)
-    {
-        /* big switch statement on err to set message */
-        NSLog(@"error while %@muting: %u, error: %d", (mute ? @"" : @"un"), device, error);
-    }
-}
--(void)queryPropertyAddress{
-    propertyAddress.mSelector = kAudioHardwarePropertyDevices;
-    propertyAddress.mScope = kAudioObjectPropertyScopeOutput;
-    propertyAddress.mElement = kAudioObjectPropertyElementMaster;
-}
 -(void)queryPropertyDataSize{
     error = AudioObjectGetPropertyDataSize(kAudioObjectSystemObject, &propertyAddress, 0, NULL, &dataSize);
 }
@@ -86,7 +56,6 @@
 -(void)identifyAllAudioDevices{
     
     // get the number of currently present audiodevices on the system
-    [self queryPropertyAddress];
     [self queryPropertyDataSize];
     
     // status is != 0 if we are unable to get the data nessesary for computing the number of devices
@@ -119,8 +88,9 @@
     currentAudioDevices = [[NSMutableArray alloc] init];
     for(UInt32 i = 0; i < deviceCount; i++)
     {
-        //NSLog(@"device found: %d",audioDevices[i]);
-        [currentAudioDevices addObject:[NSNumber numberWithInt:audioDevices[i]]];
+        AudioDeviceID deviceId = audioDevices[i];
+        BBA_AudioDevice *test = [[BBA_AudioDevice alloc]initWithDeviceId:deviceId];
+        [currentAudioDevices addObject:test];
     }
     free(audioDevices);
 }

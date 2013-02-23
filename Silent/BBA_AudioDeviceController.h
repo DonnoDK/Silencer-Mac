@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreAudio/CoreAudio.h>
+#import "BBA_AudioDevice.h"
 
 @interface BBA_AudioDeviceController : NSObject{
     NSMutableArray *currentAudioDevices;

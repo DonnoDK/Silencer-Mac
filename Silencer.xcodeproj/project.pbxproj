@@ -14,6 +14,8 @@
 		68A3C58416D7C51A00E0418B /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83B9309159381A60004468B /* CoreAudio.framework */; };
 		68A3C58716D7C8F400E0418B /* BBA_AudioDeviceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A3C58616D7C8F400E0418B /* BBA_AudioDeviceController.m */; };
 		68A3C58816D7C8F400E0418B /* BBA_AudioDeviceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A3C58616D7C8F400E0418B /* BBA_AudioDeviceController.m */; };
+		68CEF58B16D8D86E00E41E25 /* BBA_AudioDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 68CEF58A16D8D86E00E41E25 /* BBA_AudioDevice.m */; };
+		68CEF58C16D8DD3800E41E25 /* BBA_AudioDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 68CEF58A16D8D86E00E41E25 /* BBA_AudioDevice.m */; };
 		D83B92EA159381850004468B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83B92E9159381850004468B /* Cocoa.framework */; };
 		D83B92F4159381850004468B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D83B92F2159381850004468B /* InfoPlist.strings */; };
 		D83B92F6159381850004468B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D83B92F5159381850004468B /* main.m */; };
@@ -39,6 +41,8 @@
 		68A3C57A16D7B7AF00E0418B /* audioDevicesTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "audioDevicesTests-Prefix.pch"; sourceTree = "<group>"; };
 		68A3C58516D7C8F400E0418B /* BBA_AudioDeviceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBA_AudioDeviceController.h; sourceTree = "<group>"; };
 		68A3C58616D7C8F400E0418B /* BBA_AudioDeviceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBA_AudioDeviceController.m; sourceTree = "<group>"; };
+		68CEF58916D8D86E00E41E25 /* BBA_AudioDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBA_AudioDevice.h; sourceTree = "<group>"; };
+		68CEF58A16D8D86E00E41E25 /* BBA_AudioDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBA_AudioDevice.m; sourceTree = "<group>"; };
 		D83B92E5159381850004468B /* Silencer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Silencer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D83B92E9159381850004468B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D83B92EC159381850004468B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -138,6 +142,8 @@
 			children = (
 				68A3C58516D7C8F400E0418B /* BBA_AudioDeviceController.h */,
 				68A3C58616D7C8F400E0418B /* BBA_AudioDeviceController.m */,
+				68CEF58916D8D86E00E41E25 /* BBA_AudioDevice.h */,
+				68CEF58A16D8D86E00E41E25 /* BBA_AudioDevice.m */,
 			);
 			name = audio;
 			sourceTree = "<group>";
@@ -329,6 +335,7 @@
 			files = (
 				68A3C57916D7B7AF00E0418B /* audioDeviceTests.m in Sources */,
 				68A3C58816D7C8F400E0418B /* BBA_AudioDeviceController.m in Sources */,
+				68CEF58C16D8DD3800E41E25 /* BBA_AudioDevice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +349,7 @@
 				D83B93191593898E0004468B /* BBA_PreferenceController.m in Sources */,
 				D8D3B3031593C2CC00C7F3EE /* LaunchAtLoginController.m in Sources */,
 				68A3C58716D7C8F400E0418B /* BBA_AudioDeviceController.m in Sources */,
+				68CEF58B16D8D86E00E41E25 /* BBA_AudioDevice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +524,7 @@
 				68A3C57D16D7B7AF00E0418B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D83B92DF159381850004468B /* Build configuration list for PBXProject "Silencer" */ = {
 			isa = XCConfigurationList;
