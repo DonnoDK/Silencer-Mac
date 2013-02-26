@@ -59,6 +59,7 @@
     [self queryPropertyDataSize];
     
     // status is != 0 if we are unable to get the data nessesary for computing the number of devices
+    // Bail out
     if(error){
         NSLog(@"Unable to get number of audio devices. Error: %d",error);
         currentAudioDevices = nil;
@@ -67,14 +68,15 @@
     
     [self calculateDeviceCount];
     
-    // c-array malloced
+    // c-array malloced. HAS to be a c-array as AudioObjectGetPropertyData requires it.
     audioDevices = malloc(dataSize);
     
     // get data for the currently identified audio devices within the system
     [self queryPropertyData];
     
     // status is != 0 if we are unable to get any data
-    // associated with the audio devices we previously identified
+    // associated with the audio devices we previously identified.
+    // Free up resources and bail
     if(error)
     {
         NSLog(@"AudioObjectGetPropertyData failed when getting device IDs. Error: %d",error);
