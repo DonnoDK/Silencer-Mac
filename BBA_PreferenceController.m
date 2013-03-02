@@ -9,6 +9,7 @@
 
 #import "BBA_PreferenceController.h"
 #import "BBA_DefaultsController.h"
+#import "BBA_Logger.h"
 
 @implementation BBA_PreferenceController
 
@@ -44,7 +45,7 @@
     // Sets the new date object as shared defaults.
     [BBA_DefaultsController setObject:b forKey:kMuteDate];
     
-    NSLog(@"Mute set to: %@", b);
+    
     
     // Post a notification so the mute/unmuter can take the new date into account.
     [self postDateChangedNotification];
@@ -60,7 +61,7 @@
     // Sets the new date object as shared defaults.
     [BBA_DefaultsController setObject:e forKey:kUnmuteDate];
     
-    NSLog(@"Unmute set to: %@", unmute);
+    BBALog([NSString stringWithFormat:@"Unmute set to %@", e], BBA_INFO, self);
     
     // Post a notification so the mute/unmuter can take the new date into account.
     [self postDateChangedNotification];

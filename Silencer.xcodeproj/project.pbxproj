@@ -22,6 +22,7 @@
 		D8C327B616D7CAA800F08271 /* BBA_DefaultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C327B516D7CAA800F08271 /* BBA_DefaultsController.m */; };
 		D8D3B30A15949C2500C7F3EE /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = D8D3B30915949C2500C7F3EE /* Icon.icns */; };
 		D8D3B30E15949ED000C7F3EE /* StatusIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D8D3B30D15949ED000C7F3EE /* StatusIcon.png */; };
+		D8F62AF016E25A6B00470B0B /* BBA_Logger.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F62AEF16E25A6B00470B0B /* BBA_Logger.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,8 @@
 		D8D3B30915949C2500C7F3EE /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = ../Icon.icns; sourceTree = "<group>"; };
 		D8D3B30D15949ED000C7F3EE /* StatusIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusIcon.png; sourceTree = "<group>"; };
 		D8D3B3131594F22900C7F3EE /* Silencer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Silencer.entitlements; sourceTree = "<group>"; };
+		D8F62AEE16E25A6B00470B0B /* BBA_Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBA_Logger.h; sourceTree = "<group>"; };
+		D8F62AEF16E25A6B00470B0B /* BBA_Logger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBA_Logger.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +112,7 @@
 		D83B92EF159381850004468B /* Silent */ = {
 			isa = PBXGroup;
 			children = (
+				D8F62AEC16E25A5C00470B0B /* BBA Logger */,
 				D8BBFE7616E22A450021F95C /* Preferences */,
 				D8BBFE7416E229EC0021F95C /* Audio */,
 				D8C327B416D7CAA800F08271 /* BBA_DefaultsController.h */,
@@ -156,6 +160,15 @@
 				D83B9315159385A70004468B /* Preferences.xib */,
 			);
 			name = Preferences;
+			sourceTree = "<group>";
+		};
+		D8F62AEC16E25A5C00470B0B /* BBA Logger */ = {
+			isa = PBXGroup;
+			children = (
+				D8F62AEE16E25A6B00470B0B /* BBA_Logger.h */,
+				D8F62AEF16E25A6B00470B0B /* BBA_Logger.m */,
+			);
+			name = "BBA Logger";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +246,7 @@
 				D8C327B616D7CAA800F08271 /* BBA_DefaultsController.m in Sources */,
 				D8B339FA16E2284D00045794 /* BBA_AudioDevice.m in Sources */,
 				D8B339FB16E2284D00045794 /* BBA_AudioDeviceController.m in Sources */,
+				D8F62AF016E25A6B00470B0B /* BBA_Logger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
