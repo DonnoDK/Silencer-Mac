@@ -41,14 +41,14 @@
 			<object class="NSWindowTemplate" id="989551730">
 				<int key="NSWindowStyleMask">8215</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{604, 1181}, {288, 90}}</string>
+				<string key="NSWindowRect">{{43, 638}, {288, 90}}</string>
 				<int key="NSWTFlags">611845120</int>
 				<string key="NSWindowTitle">Preferences</string>
 				<string key="NSWindowClass">NSPanel</string>
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<object class="NSView" key="NSWindowView" id="387136495">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="NSTextField" id="1035730236">
@@ -56,7 +56,8 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{35, 51}, {163, 17}}</string>
 							<reference key="NSSuperview" ref="387136495"/>
-							<reference key="NSNextKeyView" ref="309517939"/>
+							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView" ref="974888499"/>
 							<string key="NSReuseIdentifierKey">_NS:1505</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="858799312">
@@ -96,6 +97,8 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{17, 23}, {181, 17}}</string>
 							<reference key="NSSuperview" ref="387136495"/>
+							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView" ref="635400610"/>
 							<string key="NSReuseIdentifierKey">_NS:1505</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="668410856">
@@ -115,7 +118,8 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{203, 20}, {65, 27}}</string>
 							<reference key="NSSuperview" ref="387136495"/>
-							<reference key="NSNextKeyView" ref="1035730236"/>
+							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSDatePickerCell" key="NSCell" id="286807723">
@@ -154,6 +158,8 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{203, 48}, {65, 27}}</string>
 							<reference key="NSSuperview" ref="387136495"/>
+							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView" ref="309517939"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSDatePickerCell" key="NSCell" id="954908351">
@@ -176,10 +182,12 @@
 						</object>
 					</array>
 					<string key="NSFrameSize">{288, 90}</string>
-					<reference key="NSNextKeyView" ref="974888499"/>
+					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
+					<reference key="NSNextKeyView" ref="1035730236"/>
 					<string key="NSReuseIdentifierKey">_NS:21</string>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {2560, 1418}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1280, 800}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
@@ -590,8 +598,8 @@
 				<string key="-1.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="-3.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="NO" key="3.IBNSWindowAutoPositionCentersHorizontal"/>
-				<boolean value="NO" key="3.IBNSWindowAutoPositionCentersVertical"/>
+				<boolean value="YES" key="3.IBNSWindowAutoPositionCentersHorizontal"/>
+				<boolean value="YES" key="3.IBNSWindowAutoPositionCentersVertical"/>
 				<string key="3.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<boolean value="YES" key="3.NSWindowTemplate.visibleAtLaunch"/>
 				<array class="NSMutableArray" key="314.IBNSViewMetadataConstraints">
