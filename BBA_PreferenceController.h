@@ -9,18 +9,11 @@
 #import <Cocoa/Cocoa.h>
 
 @interface BBA_PreferenceController : NSWindowController {
-    NSDate *begin;
-    NSDate *end;
+    NSDate *mute;
+    NSDate *unmute;
 }
 
-//@property bool launchAtLoginCheckbox;
+- (void)setMute:(NSDate *)b;
+- (void)setUnmute:(NSDate *)e;
 
-+ (NSDate *)preferenceBeginDate;
-+ (NSDate *)preferenceEndDate;
-
-//- (IBAction)launchAtLogin:(id)sender;
-
-
-- (void)setBegin:(NSDate *)b;
-- (void)setEnd:(NSDate *)e;
 @end

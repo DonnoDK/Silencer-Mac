@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreAudio/CoreAudio.h>
+#import "BBA_AudioDeviceController.h" // To mute/unmute all devices.
+
 @class BBA_PreferenceController;
 
 @interface BBA_AppController : NSObject {
@@ -16,15 +18,11 @@
     IBOutlet NSMenu *statusMenu;
     
     BBA_PreferenceController *preferenceController;
+    BBA_AudioDeviceController *audioDevicecontroller;
 }
 
 - (IBAction)showPreferences:(id)sender;
-
-- (void)muteDefaultAudioDevice;
-- (void)unmuteDefaultAudioDevice;
-
-AudioDeviceID GetDefaultAudioDevice();
-void SetMute(AudioDeviceID device, BOOL mute);
+- (IBAction)emailSupport:(id)sender;
 
 - (void)updateScheduler;
 
