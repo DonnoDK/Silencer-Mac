@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		683EB5E816E22ABB00AE1D85 /* BBA_Logger.m in Sources */ = {isa = PBXBuildFile; fileRef = 683EB5E716E22ABB00AE1D85 /* BBA_Logger.m */; };
+		683EB5E916E22ABB00AE1D85 /* BBA_Logger.m in Sources */ = {isa = PBXBuildFile; fileRef = 683EB5E716E22ABB00AE1D85 /* BBA_Logger.m */; };
+		683EB5EC16E22C5300AE1D85 /* BBA_Logger_tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 683EB5EB16E22C5300AE1D85 /* BBA_Logger_tests.m */; };
 		68A3C56F16D7B7AF00E0418B /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A3C56E16D7B7AF00E0418B /* SenTestingKit.framework */; };
 		68A3C57016D7B7AF00E0418B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83B92E9159381850004468B /* Cocoa.framework */; };
 		68A3C57616D7B7AF00E0418B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 68A3C57416D7B7AF00E0418B /* InfoPlist.strings */; };
@@ -32,6 +35,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		683EB5E616E22ABB00AE1D85 /* BBA_Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBA_Logger.h; sourceTree = "<group>"; };
+		683EB5E716E22ABB00AE1D85 /* BBA_Logger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBA_Logger.m; sourceTree = "<group>"; };
+		683EB5EA16E22C5300AE1D85 /* BBA_Logger_tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBA_Logger_tests.h; sourceTree = "<group>"; };
+		683EB5EB16E22C5300AE1D85 /* BBA_Logger_tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBA_Logger_tests.m; sourceTree = "<group>"; };
 		68A3C56D16D7B7AF00E0418B /* audioDevicesTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = audioDevicesTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		68A3C56E16D7B7AF00E0418B /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		68A3C57316D7B7AF00E0418B /* audioDevicesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "audioDevicesTests-Info.plist"; sourceTree = "<group>"; };
@@ -92,6 +99,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		683EB5E516E22AA600AE1D85 /* logging */ = {
+			isa = PBXGroup;
+			children = (
+				683EB5E616E22ABB00AE1D85 /* BBA_Logger.h */,
+				683EB5E716E22ABB00AE1D85 /* BBA_Logger.m */,
+			);
+			name = logging;
+			sourceTree = "<group>";
+		};
 		68A3C56616D7B75800E0418B /* testing */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +130,8 @@
 				68A3C57716D7B7AF00E0418B /* audioDeviceTests.h */,
 				68A3C57816D7B7AF00E0418B /* audioDeviceTests.m */,
 				68A3C57216D7B7AF00E0418B /* Supporting Files */,
+				683EB5EA16E22C5300AE1D85 /* BBA_Logger_tests.h */,
+				683EB5EB16E22C5300AE1D85 /* BBA_Logger_tests.m */,
 			);
 			name = audioDevicesTests;
 			path = ../audioDevicesTests;
@@ -132,6 +150,7 @@
 		68A3C57E16D7B92B00E0418B /* src */ = {
 			isa = PBXGroup;
 			children = (
+				683EB5E516E22AA600AE1D85 /* logging */,
 				68A3C57F16D7B93000E0418B /* audio */,
 			);
 			name = src;
@@ -336,6 +355,8 @@
 				68A3C57916D7B7AF00E0418B /* audioDeviceTests.m in Sources */,
 				68A3C58816D7C8F400E0418B /* BBA_AudioDeviceController.m in Sources */,
 				68CEF58C16D8DD3800E41E25 /* BBA_AudioDevice.m in Sources */,
+				683EB5E916E22ABB00AE1D85 /* BBA_Logger.m in Sources */,
+				683EB5EC16E22C5300AE1D85 /* BBA_Logger_tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +371,7 @@
 				D8D3B3031593C2CC00C7F3EE /* LaunchAtLoginController.m in Sources */,
 				68A3C58716D7C8F400E0418B /* BBA_AudioDeviceController.m in Sources */,
 				68CEF58B16D8D86E00E41E25 /* BBA_AudioDevice.m in Sources */,
+				683EB5E816E22ABB00AE1D85 /* BBA_Logger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

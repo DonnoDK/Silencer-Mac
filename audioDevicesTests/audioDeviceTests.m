@@ -26,7 +26,7 @@
 - (void)testAudioDeviceInstantiationSucceeds
 {
     BBA_AudioDeviceController *contr = [[BBA_AudioDeviceController alloc] init];
-    [contr muteAllDevices];
+    //[contr muteAllDevices];
     //[contr unmuteAllDevices];
     STAssertNotNil(contr, @"Could not properly instantiate a BBA_AudioDevice");
 }
