@@ -44,6 +44,8 @@
     // Sets the new date object as shared defaults.
     [BBA_DefaultsController setObject:b forKey:kMuteDate];
     
+    NSLog(@"Mute set to: %@", b);
+    
     // Post a notification so the mute/unmuter can take the new date into account.
     [self postDateChangedNotification];
 }
@@ -57,6 +59,8 @@
     
     // Sets the new date object as shared defaults.
     [BBA_DefaultsController setObject:e forKey:kUnmuteDate];
+    
+    NSLog(@"Unmute set to: %@", unmute);
     
     // Post a notification so the mute/unmuter can take the new date into account.
     [self postDateChangedNotification];
