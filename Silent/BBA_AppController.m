@@ -32,11 +32,11 @@
     // Setup code for the status bar.
     [self setup_statusBar];
     
-    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-    [nc addObserver:self
-           selector:@selector(updateScheduler)
-               name:@"dateObjectHasChanged"
-             object:nil];
+    // Listens for changes made in the preferences and calls a method to deal with those changes.
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateScheduler)
+                                                 name:@"dateObjectHasChanged"
+                                               object:nil];
     
     [self updateScheduler];
     
@@ -123,22 +123,32 @@ void SetMute(AudioDeviceID device, BOOL mute)
 #pragma mark Mute Functions
 
 - (void)mute {
+    NSLog(@"Muted at %@\n", [NSDate date]);
+    /*
     SetMute(GetDefaultAudioDevice(), TRUE);
     sleep(1); // sleep 2 seconds to prevent the selector from fiering multiple times within the same second
-    [self updateScheduler];
+    [self updateScheduler]; 
+     
+    this code can be removed safely
+     */
 }
 
 - (void)unmute {
+    NSLog(@"Unmuted at %@\n", [NSDate date]);
+    /* 
     SetMute(GetDefaultAudioDevice(), FALSE);
     sleep(1); // sleep 2 seconds to prevent the selector from fiering multiple times within the same second
     [self updateScheduler];
+     
+     this code can be safely removed
+     */
 }
 
 - (void)updateScheduler {
     NSInteger totalOffsetInSecondsForMute = 0;
     NSInteger totalOffsetInSecondsForUnmute = 0;
     
-    [NSObject cancelPreviousPerformRequestsWithTarget:self];
+    
     
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     
@@ -161,6 +171,10 @@ void SetMute(AudioDeviceID device, BOOL mute)
 
     totalOffsetInSecondsForUnmute = (endInSeconds - nowInSeconds) % (60 * 60 * 24);
     if (totalOffsetInSecondsForUnmute < 0) totalOffsetInSecondsForUnmute += (60 * 60 * 24); // objC does not prevent negative modulus.
+    
+    // Cancel any previous perform requests before creating a new request.
+    // Must be done so we dont have multiple requests waiting after changing the preferences.
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
     
     [self performSelector:@selector(mute) withObject:self afterDelay:totalOffsetInSecondsForMute];
     [self performSelector:@selector(unmute) withObject:self afterDelay:totalOffsetInSecondsForUnmute];
