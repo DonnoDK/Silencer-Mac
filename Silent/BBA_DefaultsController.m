@@ -36,9 +36,9 @@ NSString * const kUnmuteDate = @"unmute";
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     
     NSDateComponents *startDateComponent = [[NSDateComponents alloc] init];
-    [startDateComponent setYear:1983];   // random value
-    [startDateComponent setMonth:1];     // random value
-    [startDateComponent setDay:1];       // random value
+    [startDateComponent setYear:1983];   // random value, year is irrelevant
+    [startDateComponent setMonth:1];     // random value, month is irrelevant
+    [startDateComponent setDay:1];       // random value, day is irrelevant since we are not interested in limiting mute/unmute to specific dates.
     [startDateComponent setHour:22];
     [startDateComponent setMinute:0];
     [startDateComponent setSecond:00];

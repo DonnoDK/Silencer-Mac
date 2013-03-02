@@ -10,6 +10,7 @@
 #import "BBA_PreferenceController.h"
 #import "BBA_DefaultsController.h"
 
+
 @implementation BBA_AppController
 
 + (void)initialize {
@@ -25,6 +26,16 @@
     [statusItem setImage:statusIcon];
     [statusItem setHighlightMode:YES];
     [statusItem setMenu:statusMenu];
+}
+
+- (id)init {
+    self = [super init];
+    
+    if (self) {
+        audioDevicecontroller = [[BBA_AudioDeviceController alloc] init];
+    }
+    
+    return self;
 }
 
 - (void)awakeFromNib {
@@ -60,95 +71,27 @@
     [preferenceController showWindow:self];
 }
 
-#pragma mark mute code
-
-- (void)muteDefaultAudioDevice {
-    SetMute(GetDefaultAudioDevice(), YES);
-}
-
-- (void)unmuteDefaultAudioDevice {
-    SetMute(GetDefaultAudioDevice(), NO);
-}
-
-AudioDeviceID GetDefaultAudioDevice()
-{
-    OSStatus err;
-    AudioDeviceID device = 0;
-    UInt32 size = sizeof(AudioDeviceID);
-    AudioObjectPropertyAddress address = {
-        kAudioHardwarePropertyDefaultOutputDevice,
-        kAudioObjectPropertyScopeGlobal,
-        kAudioObjectPropertyElementMaster
-    };
-    
-    err = AudioObjectGetPropertyData(kAudioObjectSystemObject,
-                                     &address,
-                                     0,
-                                     NULL,
-                                     &size,
-                                     &device);
-    if (err)
-    {
-        NSLog(@"could not get default audio output device");
-    }
-    
-    return device;
-}
-
-void SetMute(AudioDeviceID device, BOOL mute)
-{
-    UInt32 muteVal = (UInt32)mute;
-    
-    AudioObjectPropertyAddress address = {
-        kAudioDevicePropertyMute,
-        kAudioDevicePropertyScopeOutput,
-        0
-    };
-    
-    OSStatus err;
-    err = AudioObjectSetPropertyData(device,
-                                     &address,
-                                     0,
-                                     NULL,
-                                     sizeof(UInt32),
-                                     &muteVal);
-    if (err)
-    {
-        NSString * message;
-        /* big switch statement on err to set message */
-        NSLog(@"error while %@muting: %@", (mute ? @"" : @"un"), message);
-    }
+- (IBAction)emailSupport:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://bluebirdapps.dk/contact/"]];
 }
 
 #pragma mark Mute Functions
 
 - (void)mute {
+    [self updateScheduler]; // Mute again in 24 hours.
     NSLog(@"Muted at %@\n", [NSDate date]);
-    /*
-    SetMute(GetDefaultAudioDevice(), TRUE);
-    sleep(1); // sleep 2 seconds to prevent the selector from fiering multiple times within the same second
-    [self updateScheduler]; 
-     
-    this code can be removed safely
-     */
+    
+    [audioDevicecontroller muteAllDevices];
 }
 
 - (void)unmute {
+    [self updateScheduler]; // Unmute again in 24 hours.
     NSLog(@"Unmuted at %@\n", [NSDate date]);
-    /* 
-    SetMute(GetDefaultAudioDevice(), FALSE);
-    sleep(1); // sleep 2 seconds to prevent the selector from fiering multiple times within the same second
-    [self updateScheduler];
-     
-     this code can be safely removed
-     */
+    
+    [audioDevicecontroller unmuteAllDevices];
 }
 
 - (void)updateScheduler {
-    NSInteger totalOffsetInSecondsForMute = 0;
-    NSInteger totalOffsetInSecondsForUnmute = 0;
-    
-    
     
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     
@@ -161,21 +104,31 @@ void SetMute(AudioDeviceID device, BOOL mute)
     NSDate *end = [BBA_DefaultsController preferenceEndDate];
     NSDateComponents *endComponents = [gregorian components:NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit fromDate:end];
     
+    // Calculates the begin, end and now time as seconds from midnight.
     int beginInSeconds = (int)([beginComponents hour] * 60 * 60 + [beginComponents minute] * 60 + [beginComponents second]);
     int endInSeconds = (int)([endComponents hour] * 60 * 60 + [endComponents minute] * 60 + [endComponents second]);
     int nowInSeconds = (int)([nowComponents hour] * 60 * 60 + [nowComponents minute] * 60 + [nowComponents second]);
     
-    // was previously doing calculations with 60*60*60 which was incorrect
-    totalOffsetInSecondsForMute = (beginInSeconds - nowInSeconds) % (60 * 60 * 24);
-    if (totalOffsetInSecondsForMute < 0) totalOffsetInSecondsForMute += (60 * 60 * 24); // objC does not prevent negative modulus.
-
-    totalOffsetInSecondsForUnmute = (endInSeconds - nowInSeconds) % (60 * 60 * 24);
-    if (totalOffsetInSecondsForUnmute < 0) totalOffsetInSecondsForUnmute += (60 * 60 * 24); // objC does not prevent negative modulus.
+    NSInteger totalOffsetInSecondsForMute = beginInSeconds - nowInSeconds;
+    NSInteger totalOffsetInSecondsForUnmute = endInSeconds - nowInSeconds;
     
-    // Cancel any previous perform requests before creating a new request.
-    // Must be done so we dont have multiple requests waiting after changing the preferences.
+    /*
+     *  If the begin or end times are less than the current time then schedule their action for the next day.
+     *  The equal sign is used to prevent the scheduled task from executing multipl times during the current scheduled second.
+     */
+    const int SECONDS_IN_A_DAY = 60 * 60 * 24;
+    if (beginInSeconds <= nowInSeconds)
+        totalOffsetInSecondsForMute += SECONDS_IN_A_DAY;
+    if (endInSeconds <= nowInSeconds)
+        totalOffsetInSecondsForUnmute += SECONDS_IN_A_DAY;
+    
+    NSLog(@"\n");
+    NSLog(@"Will mute in %ld seconds.\n", totalOffsetInSecondsForMute);
+    NSLog(@"Will unmute in %ld seconds.\n", totalOffsetInSecondsForUnmute);
+    NSLog(@"\n");
+     
+    // Cancel any previous requests then create a new request.
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
-    
     [self performSelector:@selector(mute) withObject:self afterDelay:totalOffsetInSecondsForMute];
     [self performSelector:@selector(unmute) withObject:self afterDelay:totalOffsetInSecondsForUnmute];
     
