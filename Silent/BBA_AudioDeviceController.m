@@ -20,10 +20,6 @@
         audioDevices = nil;
         dataSize = 0;
         deviceCount = 0;
-        // define the propertyAddress to use
-        propertyAddress.mSelector = kAudioHardwarePropertyDevices;
-        propertyAddress.mScope = kAudioObjectPropertyScopeOutput;
-        propertyAddress.mElement = kAudioObjectPropertyElementMaster;
     }
     return self;
 }
@@ -46,6 +42,9 @@
 
 // Private methods
 -(void)queryPropertyDataSize{
+    propertyAddress.mSelector = kAudioHardwarePropertyDevices;
+    propertyAddress.mScope = kAudioObjectPropertyScopeOutput;
+    propertyAddress.mElement = kAudioObjectPropertyElementMaster;
     error = AudioObjectGetPropertyDataSize(kAudioObjectSystemObject, &propertyAddress, 0, NULL, &dataSize);
 }
 -(void)queryPropertyData{
@@ -95,9 +94,44 @@
     for(UInt32 i = 0; i < deviceCount; i++)
     {
         AudioDeviceID deviceId = audioDevices[i];
-        BBA_AudioDevice *test = [[BBA_AudioDevice alloc]initWithDeviceId:deviceId];
+        NSString *deviceName = [self determineDeviceNameForDevice:deviceId];
+        NSString *deviceManufacturer = [self determineManufacturerNameForDevice:deviceId];
+        BBA_AudioDevice *test = [[BBA_AudioDevice alloc]initWithDeviceId:deviceId andName:deviceName andManufacturer:deviceManufacturer];
         [currentAudioDevices addObject:test];
     }
     free(audioDevices);
+}
+-(NSString*)determineDeviceNameForDevice:(AudioDeviceID)deviceId{
+    char deviceName[64];
+    dataSize = sizeof(deviceName);
+    propertyAddress.mSelector = kAudioDevicePropertyDeviceName;
+    propertyAddress.mScope = kAudioObjectPropertyScopeGlobal;
+    propertyAddress.mElement = kAudioObjectPropertyElementMaster;
+    AudioObjectGetPropertyData(deviceId, &propertyAddress, 0, NULL, &dataSize, deviceName);
+    return [NSString stringWithUTF8String:deviceName];
+}
+-(NSString*)determineManufacturerNameForDevice:(AudioDeviceID)deviceId{
+    char manufacturerName[64];
+    dataSize = sizeof(manufacturerName);
+    propertyAddress.mSelector = kAudioDevicePropertyDeviceManufacturer;
+    propertyAddress.mScope = kAudioObjectPropertyScopeGlobal;
+    propertyAddress.mElement = kAudioObjectPropertyElementMaster;
+    AudioObjectGetPropertyData(deviceId, &propertyAddress, 0, NULL, &dataSize, manufacturerName);
+    return [NSString stringWithUTF8String:manufacturerName];
+}
+-(NSString*)determineUIDStringForDevice:(AudioDeviceID)deviceId{
+    // We dont use this method for now, but if we later want to use it, then its here
+    // Gets the unique UID string for a device.
+    CFStringRef uidString;
+    
+    dataSize = sizeof(uidString);
+    propertyAddress.mSelector = kAudioDevicePropertyDeviceUID;
+    propertyAddress.mScope = kAudioObjectPropertyScopeGlobal;
+    propertyAddress.mElement = kAudioObjectPropertyElementMaster;
+    AudioObjectGetPropertyData(deviceId, &propertyAddress, 0, NULL, &dataSize, &uidString);
+    //NSLog(@"device %s by %s id %@", deviceName, manufacturerName, uidString);
+    NSString *uidNSString = [NSString stringWithString:CFBridgingRelease(uidString)];
+    CFRelease(uidString);
+    return uidNSString;
 }
 @end

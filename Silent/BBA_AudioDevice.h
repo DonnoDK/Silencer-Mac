@@ -13,8 +13,10 @@
     AudioDeviceID device;
     AudioObjectPropertyAddress propertyAddres;
     OSStatus error;
+    NSString *deviceName;
+    NSString *deviceManufacturer;
 }
--(id)initWithDeviceId:(AudioDeviceID)newId;
+-(id)initWithDeviceId:(AudioDeviceID)newId andName:(NSString*)name andManufacturer:(NSString*)manufacturer;
 -(void)mute;
 -(void)unmute;
 @end
