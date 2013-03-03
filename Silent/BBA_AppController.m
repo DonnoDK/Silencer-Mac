@@ -9,6 +9,7 @@
 #import "BBA_AppController.h"
 #import "BBA_PreferenceController.h"
 #import "BBA_DefaultsController.h"
+#import "BBA_Logger.h"
 
 
 @implementation BBA_AppController
@@ -126,6 +127,10 @@
     NSLog(@"Will mute in %ld seconds.\n", totalOffsetInSecondsForMute);
     NSLog(@"Will unmute in %ld seconds.\n", totalOffsetInSecondsForUnmute);
     NSLog(@"\n");
+    
+    BBALog([NSString stringWithFormat:@"Will now mute in %ld seconds", totalOffsetInSecondsForMute], BBA_INFO, self);
+    BBALog([NSString stringWithFormat:@"Will now unmute in %ld seconds", totalOffsetInSecondsForUnmute], BBA_INFO, self);
+    
      
     // Cancel any previous requests then create a new request.
     [NSObject cancelPreviousPerformRequestsWithTarget:self];

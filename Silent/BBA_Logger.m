@@ -12,11 +12,11 @@
 @implementation BBA_Logger
 
 +(BBA_Logger*)sharedInstance{
-    // This is ugly BUT thread safe code when using the singleton pattern
+    // This syntax is ugly BUT this is thread safe code when using the singleton pattern
     static dispatch_once_t pred = 0;
     __strong static id _sharedObject = nil;
     dispatch_once(&pred, ^{
-        _sharedObject = [[self alloc] initWithLogfileFilename:@"Silencer.log"];
+        _sharedObject = [[self alloc] initWithLogfileFilename:@"app_log.log"];
     });
     return _sharedObject;
 }
@@ -25,13 +25,16 @@
     assert(false && "Unable to instantiate using -(id)init");
 }
 
-
--(void)bbaLog:(NSString*)message atLogLevel:(BBA_LOG_LEVEL)logLevel inClass:(id)theClass{
+-(void)bbaLog:(NSString*)message atLogLevel:(BBA_LOG_LEVEL)logLevel inClass:(id)sender{
+    // lock this region when a thread is using it
+    [mutex lock];
     NSDate *now = [NSDate date];
     NSString *loglevelString = [self determineLoglevelString:logLevel];
-    NSString *className = NSStringFromClass([theClass class]);
-    NSString *logString = [NSString stringWithFormat:@"[DATE: %@][LEVEL: %@][CLASS: %@] Message: %@\n",now,loglevelString,className,message];
+    NSString *className = NSStringFromClass([sender class]);
+    NSString *logString = [NSString stringWithFormat:@"[%@][%@][IN_CLASS: %@] Message: %@\n",now,loglevelString,className,message];
     [self writeToFile:logString];
+    // unlock after a thread is done logging
+    [mutex unlock];
 }
 
 -(void)writeToFile:(NSString*)logString{
@@ -70,6 +73,7 @@
             levelString = @"DEBUG";
             break;
         default:
+            levelString = @"UNDEFINED";
             break;
     }
     return levelString;
@@ -85,6 +89,7 @@
             [[NSFileManager defaultManager]createFileAtPath:pathForLogfile contents:nil attributes:nil];
             logfile = [NSFileHandle fileHandleForWritingAtPath:pathForLogfile];
         }
+        mutex = [[NSLock alloc]init];
     }
     return self;
 }

@@ -7,6 +7,7 @@
 //
 
 #import "BBA_AudioDeviceController.h"
+#import "BBA_Logger.h"
 
 @implementation BBA_AudioDeviceController
 
@@ -61,7 +62,9 @@
     // status is != 0 if we are unable to get the data nessesary for computing the number of devices
     // Bail out
     if(error){
-        NSLog(@"Unable to get number of audio devices. Error: %d",error);
+        //NSLog(@"Unable to get number of audio devices. Error: %d",error);
+        NSString *logstring = [NSString stringWithFormat:@"Unable to get number of audio devices. Error: %d",error];
+        BBALog(logstring, BBA_ERROR, self);
         currentAudioDevices = nil;
         return;
     }
@@ -79,7 +82,8 @@
     // Free up resources and bail
     if(error)
     {
-        NSLog(@"AudioObjectGetPropertyData failed when getting device IDs. Error: %d",error);
+        NSString *logstring = [NSString stringWithFormat:@"AudioObjectGetPropertyData failed when getting device IDs. Error: %d",error];
+        BBALog(logstring, BBA_ERROR, self);
         free(audioDevices);
         audioDevices = NULL;
         currentAudioDevices = NULL;

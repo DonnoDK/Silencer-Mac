@@ -7,6 +7,7 @@
 //
 
 #import "BBA_AudioDevice.h"
+#import "BBA_Logger.h"
 
 @implementation BBA_AudioDevice
 -(id)init{
@@ -15,27 +16,34 @@
 -(id)initWithDeviceId:(AudioDeviceID)newId{
     self = [super init];
     if (self) {
-        assert(self && @"BBA_AudioDevice failed to instantiate");
         propertyAddres.mSelector = kAudioDevicePropertyMute;
         propertyAddres.mScope = kAudioDevicePropertyScopeOutput;
         propertyAddres.mElement = kAudioObjectPropertyElementMaster;
         device = newId;
+    }else{
+        assert(self && @"BBA_AudioDevice failed to instantiate");
     }
     return self;
 }
--(BOOL)mute{
+-(void)mute{
     [self muteDevice:YES];
-    if(error)
-        return NO;
-    else
-        return YES;
+    if(error){
+        NSString *logstring = [NSString stringWithFormat:@"Failed to mute device: %u, with error: %d", device,error];
+        BBALog(logstring, BBA_ERROR, self);
+    }else{
+        NSString *logstring = [NSString stringWithFormat:@"Muted device:%u successfully",device];
+        BBALog(logstring, BBA_INFO, self);
+    }
 }
--(BOOL)unmute{
+-(void)unmute{
     [self muteDevice:NO];
-    if(error)
-        return NO;
-    else
-        return YES;
+    if(error){
+        NSString *logstring = [NSString stringWithFormat:@"Failed to unmute device: %u, with error: %d", device,error];
+        BBALog(logstring, BBA_ERROR, self);
+    }else{
+        NSString *logstring = [NSString stringWithFormat:@"Unmuted device:%u successfully",device];
+        BBALog(logstring, BBA_INFO, self);
+    }
 }
 
 // private methods

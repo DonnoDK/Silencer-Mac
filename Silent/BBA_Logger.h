@@ -8,12 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-
-@interface BBA_Logger : NSObject{
-    NSString *pathForLogfile;
-    NSFileHandle *logfile;
-    
-}
+// Enum for log levels. Remember to add an associated string in the .m file
 typedef enum BBA_LOG_LEVEL{
     BBA_EMERGENCY = 0,
     BBA_ALERT,
@@ -25,10 +20,17 @@ typedef enum BBA_LOG_LEVEL{
     BBA_DEBUG
 }BBA_LOG_LEVEL;
 
+// The logger class
+@interface BBA_Logger : NSObject{
+    // path to the logfile
+    NSString *pathForLogfile;
+    // pointer/handle to the logfile
+    NSFileHandle *logfile;
+    // mutex for thread-safety
+    NSLock *mutex;
+}
 +(BBA_Logger*)sharedInstance;
-
--(void)bbaLog:(NSString*)message atLogLevel:(BBA_LOG_LEVEL)logLevel inClass:(id)theClass;
-
 @end
 
+// C-like function for logging. This is on purpose to make it look like NSLog(...)
 void BBALog(NSString* message, BBA_LOG_LEVEL level, id sender);

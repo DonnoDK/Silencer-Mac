@@ -15,6 +15,6 @@
     OSStatus error;
 }
 -(id)initWithDeviceId:(AudioDeviceID)newId;
--(BOOL)mute;
--(BOOL)unmute;
+-(void)mute;
+-(void)unmute;
 @end
