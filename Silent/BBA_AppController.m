@@ -80,14 +80,12 @@
 
 - (void)mute {
     [self updateScheduler]; // Mute again in 24 hours.
-    NSLog(@"Muted at %@\n", [NSDate date]);
     
     [audioDevicecontroller muteAllDevices];
 }
 
 - (void)unmute {
     [self updateScheduler]; // Unmute again in 24 hours.
-    NSLog(@"Unmuted at %@\n", [NSDate date]);
     
     [audioDevicecontroller unmuteAllDevices];
 }
@@ -122,11 +120,6 @@
         totalOffsetInSecondsForMute += SECONDS_IN_A_DAY;
     if (endInSeconds <= nowInSeconds)
         totalOffsetInSecondsForUnmute += SECONDS_IN_A_DAY;
-    
-    NSLog(@"\n");
-    NSLog(@"Will mute in %ld seconds.\n", totalOffsetInSecondsForMute);
-    NSLog(@"Will unmute in %ld seconds.\n", totalOffsetInSecondsForUnmute);
-    NSLog(@"\n");
     
     BBALog([NSString stringWithFormat:@"Will now mute in %ld seconds", totalOffsetInSecondsForMute], BBA_INFO, self);
     BBALog([NSString stringWithFormat:@"Will now unmute in %ld seconds", totalOffsetInSecondsForUnmute], BBA_INFO, self);
